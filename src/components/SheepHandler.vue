@@ -2,34 +2,35 @@
 <div id="sheep-handler">
   <div class="sheep-players">
     <SheepPlayer :key="player.id" :playerName="player.playerName" :points="player.points" v-for="player in players"></SheepPlayer>
-    <div class="new-player-form">
-      <input v-model="newPlayerName">
-      <button @click="createPlayer">Submit</button>
-    </div>
+    <NewPlayerForm @newPlayer="createPlayer"></NewPlayerForm>
   </div>
 </div>
 </template>
 
 <script>
+// Todo: clean this up
 import SheepPlayer from './SheepPlayer'
 import SheepCategory from './SheepCategory'
 import SheepAnswer from './SheepAnswer'
 import Player from '../data/models/player'
 import Category from '../data/models/category'
 import Answer from '../data/models/answer'
+import NewPlayerForm from '../forms/player'
 
 export default {
   components: {
     SheepPlayer,
     SheepCategory,
-    SheepAnswer
+    SheepAnswer,
+    NewPlayerForm
   },
   data () {
     return {
       players: [],
       categories: [],
       answers: [],
-      newPlayerName: ''
+      newPlayerName: '',
+      newCategoryName: ''
     }
   },
   methods: {
@@ -43,8 +44,8 @@ export default {
     createCategory (name) {
       this.categories.push(new Category(name))
     },
-    createPlayer () {
-      this.players.push(new Player(this.newPlayerName, this.players.length))
+    createPlayer (name) {
+      this.players.push(new Player(name, this.players.length))
       this.newPlayerName = ''
     }
   }
