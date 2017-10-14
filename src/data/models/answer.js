@@ -1,5 +1,7 @@
 export default class {
-  constructor (content) {
+  constructor (id, categoryId, content) {
+    this.id = id
+    this.categoryId = categoryId
     this.content = content
     this.players = []
     this.points = 0

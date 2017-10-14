@@ -15,7 +15,6 @@ export default {
   methods: {
     emitCreateCategory () {
       this.$emit('newCategory', this.newCategoryName)
-      console.log('fired')
       this.newCategoryName = ''
     }
   }

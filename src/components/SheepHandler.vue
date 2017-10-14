@@ -6,7 +6,11 @@
   </div>
   <div class="sheep-categories">
     <NewCategoryForm @newCategory="createCategory"></NewCategoryForm>
-    <SheepCategory :key="category.id" :categoryName="category.categoryName" v-for="category in categories"></SheepCategory>
+    <SheepCategory
+      :key="category.id"
+      :categoryName="category.categoryName"
+      :categoryId="category.id"
+      v-for="category in categories"></SheepCategory>
   </div>
 </div>
 </template>
@@ -15,10 +19,8 @@
 // Todo: clean this up
 import SheepPlayer from './SheepPlayer'
 import SheepCategory from './SheepCategory'
-import SheepAnswer from './SheepAnswer'
 import Player from '../data/models/player'
 import Category from '../data/models/category'
-import Answer from '../data/models/answer'
 import NewPlayerForm from '../forms/player'
 import NewCategoryForm from '../forms/category'
 
@@ -26,7 +28,6 @@ export default {
   components: {
     SheepPlayer,
     SheepCategory,
-    SheepAnswer,
     NewPlayerForm,
     NewCategoryForm
   },
@@ -44,11 +45,7 @@ export default {
       player.addAnswer(answer)
       answer.addPlayer(player)
     },
-    createAnswer (content) {
-      this.answers.push(new Answer(content))
-    },
     createCategory (name) {
-      console.log('got it', name)
       this.categories.push(new Category(name, this.categories.length))
     },
     createPlayer (name) {
