@@ -1,7 +1,7 @@
 <template lang="html">
 <div id="sheep-handler">
   <div class="sheep-players">
-    <SheepPlayer :key="player.id" :playerName="player.playerName" v-for="player in players"></SheepPlayer>
+    <SheepPlayer :key="player.id" :playerName="player.playerName" :points="player.points" v-for="player in players"></SheepPlayer>
     <div class="new-player-form">
       <input v-model="newPlayerName">
       <button @click="createPlayer">Submit</button>

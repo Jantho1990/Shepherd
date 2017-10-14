@@ -8,7 +8,7 @@ export default class {
 
   addAnswer (answer) {
     this.answers.push(answer)
-    this.calculatePointTotal()
+    this.points = this.calculatePointTotal()
   }
 
   removeAnswer (answer) {
@@ -16,7 +16,7 @@ export default class {
       let id = answer
       let tgt = this.answers.findIndex(answer => answer.id === id)
       this.answers.splice(tgt, 1)
-      this.calculatePointTotal()
+      this.points = this.calculatePointTotal()
     }
   }
 
