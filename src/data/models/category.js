@@ -1,6 +1,6 @@
 export default class {
   constructor (name) {
-    this.name = name
+    this.categoryName = name
     this.answers = []
   }
 

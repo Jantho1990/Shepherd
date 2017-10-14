@@ -1,16 +1,15 @@
 <template lang="html">
   <div class="">
-    {{ name }}
+    {{ playerName }}
   </div>
 </template>
 
 <script>
 export default {
   name: 'SheepPlayer',
-  props: ['name'],
+  props: ['playerName'],
   data () {
     return {
-      name: 'Sheep Player',
       answers: []
     }
   },
