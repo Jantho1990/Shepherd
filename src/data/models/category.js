@@ -1,5 +1,6 @@
 export default class {
-  constructor (name) {
+  constructor (name, id) {
+    this.id = id
     this.categoryName = name
     this.answers = []
   }

@@ -4,6 +4,10 @@
     <SheepPlayer :key="player.id" :playerName="player.playerName" :points="player.points" v-for="player in players"></SheepPlayer>
     <NewPlayerForm @newPlayer="createPlayer"></NewPlayerForm>
   </div>
+  <div class="sheep-categories">
+    <NewCategoryForm @newCategory="createCategory"></NewCategoryForm>
+    <SheepCategory :key="category.id" :categoryName="category.categoryName" v-for="category in categories"></SheepCategory>
+  </div>
 </div>
 </template>
 
@@ -16,13 +20,15 @@ import Player from '../data/models/player'
 import Category from '../data/models/category'
 import Answer from '../data/models/answer'
 import NewPlayerForm from '../forms/player'
+import NewCategoryForm from '../forms/category'
 
 export default {
   components: {
     SheepPlayer,
     SheepCategory,
     SheepAnswer,
-    NewPlayerForm
+    NewPlayerForm,
+    NewCategoryForm
   },
   data () {
     return {
@@ -42,7 +48,8 @@ export default {
       this.answers.push(new Answer(content))
     },
     createCategory (name) {
-      this.categories.push(new Category(name))
+      console.log('got it', name)
+      this.categories.push(new Category(name, this.categories.length))
     },
     createPlayer (name) {
       this.players.push(new Player(name, this.players.length))
