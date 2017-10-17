@@ -14,6 +14,7 @@ export default {
   },
   methods: {
     emitCreateAnswer () {
+      console.log('new answer')
       this.$emit('newAnswer', this.newAnswerContent)
       this.newAnswerContent = ''
     }

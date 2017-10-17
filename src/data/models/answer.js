@@ -7,24 +7,21 @@ export default class {
     this.points = 0
   }
 
-  get points () {
-    return this.calculatePointTotal()
-  }
-
-  set points (val) {
-    this.points = val
-  }
-
   addPlayer (player) {
     this.players.push(player)
+    this.points = this.calculatePointTotal()
   }
 
-  removePlayer (player) {
-    if (typeof player === 'number') {
-      let id = player
-      let tgt = this.players.findIndex(player => player.id === id)
-      this.players.splice(tgt, 1)
+  removePlayer (removedPlayer) {
+    let id = null
+    if (typeof removedPlayer === 'number') {
+      id = removedPlayer
+    } else {
+      id = removedPlayer.id
     }
+    let tgt = this.players.findIndex(player => player.id === id)
+    this.players.splice(tgt, 1)
+    this.calculatePointTotal()
   }
 
   calculatePointTotal () {

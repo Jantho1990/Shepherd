@@ -1,15 +1,13 @@
 <template lang="html">
-<div class="">
-
-</div>
+  <li>{{ content }}</li>
 </template>
 
 <script>
 export default {
   name: 'SheepAnswer',
+  props: ['content'],
   data () {
     return {
-      content: 'This is an answer to a Sheep Category',
       players: []
     }
   },

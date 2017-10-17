@@ -3,7 +3,7 @@
   <p>Category: {{ categoryName }}</p>
   <NewAnswerForm @newAnswer="createAnswer"></NewAnswerForm>
   <ul class="sheep-answers">
-    <SheepAnswer :content="answer.content" :players="answer.players" v-for="answer in answers"></SheepAnswer>
+    <SheepAnswer :key="answer.id" :content="answer.content" :players="answer.players" v-for="answer in answers"></SheepAnswer>
   </ul>
 </div>
 </template>
@@ -19,14 +19,13 @@ export default {
   props: ['categoryName', 'categoryId'],
   data () {
     return {
-      answers: [
-
-      ]
+      answers: []
     }
   },
   methods: {
     createAnswer (content) {
-      this.answers.push(new Answer(this.answers.length, this.id, content))
+      console.log('create answer', this.categoryId)
+      this.answers.push(new Answer(this.answers.length, this.categoryId, content))
     }
   }
 }
