@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'SheepAnswer',
-  props: ['content'],
+  props: ['content', 'players'],
   data () {
     return {
       players: []
