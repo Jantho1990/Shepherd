@@ -3,7 +3,7 @@
   <p>Category: {{ categoryName }}</p>
   <NewAnswerForm @newAnswer="createAnswer"></NewAnswerForm>
   <ul class="sheep-answers">
-    <SheepAnswer :key="answer.id" :content="answer.content" :players="answer.players" v-for="answer in answers"></SheepAnswer>
+    <SheepAnswer :key="answer.id" :content="answer.content" :all-players="allPlayers" v-for="answer in answers"></SheepAnswer>
   </ul>
 </div>
 </template>
@@ -16,7 +16,7 @@ import Answer from '../data/models/answer'
 export default {
   name: 'SheepCategory',
   components: {NewAnswerForm, SheepAnswer},
-  props: ['categoryName', 'categoryId'],
+  props: ['categoryName', 'categoryId', 'allPlayers'],
   data () {
     return {
       answers: []

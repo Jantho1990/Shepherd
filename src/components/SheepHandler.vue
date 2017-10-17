@@ -10,6 +10,7 @@
       :key="category.id"
       :categoryName="category.categoryName"
       :categoryId="category.id"
+      :all-players="players"
       v-for="category in categories"></SheepCategory>
   </div>
 </div>
