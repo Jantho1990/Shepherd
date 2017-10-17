@@ -3,22 +3,20 @@
     <span>{{ content }}</span>
     <input v-model="answerPlayer">
     <button @click="emitPlayerAnswer">Add Player</button>
-    <multiselect
-      :model="selectPlayer"
+    <mselect
       :options="allPlayers"
       label="playerName"
       track-by="id"
-      :multiple="true"
       class="answer-players">
-    </multiselect>
+    </mselect>
   </li>
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect'
+import mselect from './vendor/mselect'
 export default {
   name: 'SheepAnswer',
-  components: { Multiselect },
+  components: { mselect },
   props: ['content', 'allPlayers', 'players'],
   data () {
     return {
