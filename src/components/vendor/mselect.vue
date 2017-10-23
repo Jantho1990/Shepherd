@@ -5,7 +5,7 @@
       :label="label"
       :track-by="trackBy"
       :multiple="true"
-      @change.native="emitPlayerUpdate"
+      @input="emitAnswerAddPlayer"
       class="answer-players">
     </multiselect>
 </template>
@@ -21,8 +21,8 @@ export default {
     }
   },
   methods: {
-    emitPlayerUpdate () {
-      this.$emit('playerUpdate', this.value)
+    emitAnswerAddPlayer () {
+      this.$emit('answerAddPlayer', this.value)
     }
   }
 }

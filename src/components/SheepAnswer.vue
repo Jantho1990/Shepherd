@@ -5,7 +5,7 @@
       :options="allPlayers"
       label="playerName"
       track-by="id"
-      @playerUpdate="answerPlayerUpdate"
+      @answerAddPlayer="updateAnswerPlayers"
       class="answer-players">
     </mselect>
   </li>
@@ -19,22 +19,19 @@ export default {
   props: ['content', 'allPlayers', 'players'],
   data () {
     return {
-      answerPlayer: '',
+      answerPlayers: [],
       selectPlayer: null
     }
   },
   computed: {
     pointTotal () {
-      return this.players.count
+      return this.answerPlayers.length
     }
   },
   methods: {
-    emitPlayerAnswer () {
-      this.$emit('playerAnswer', this.answerPlayer)
-      this.answerPlayer = ''
-    },
-    answerPlayerUpdate (players) {
-      console.log('shark', players)
+    updateAnswerPlayers (players) {
+      console.log('hit', players)
+      this.answerPlayers = players
     }
   }
 }
