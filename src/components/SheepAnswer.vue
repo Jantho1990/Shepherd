@@ -1,6 +1,6 @@
 <template lang="html">
   <li>
-    <span>{{ content }}</span>
+    <span>{{ content }} ({{ pointTotal }} points)</span>
     <mselect
       :options="allPlayers"
       label="playerName"
