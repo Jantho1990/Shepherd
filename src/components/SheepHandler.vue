@@ -1,10 +1,12 @@
 <template lang="html">
 <div id="sheep-handler">
   <div class="sheep-players">
+    <h2>Players</h2>
     <SheepPlayer :key="player.id" :playerName="player.playerName" :points="player.points" v-for="player in players"></SheepPlayer>
     <NewPlayerForm @newPlayer="createPlayer"></NewPlayerForm>
   </div>
   <div class="sheep-categories">
+    <h2>Categories</h2>
     <NewCategoryForm @newCategory="createCategory"></NewCategoryForm>
     <SheepCategory
       :key="category.id"

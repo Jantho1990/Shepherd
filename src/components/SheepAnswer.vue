@@ -39,4 +39,8 @@ export default {
 </script>
 
 <style lang="css">
+.multiselect {
+  max-width:600px;
+  margin: 0 auto;
+}
 </style>
