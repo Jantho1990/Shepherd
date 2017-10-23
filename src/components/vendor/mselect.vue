@@ -1,10 +1,11 @@
 <template lang="html">
   <multiselect
-      :model="selected"
+      v-model="value"
       :options="options"
       :label="label"
       :track-by="trackBy"
       :multiple="true"
+      @change.native="emitPlayerUpdate"
       class="answer-players">
     </multiselect>
 </template>
@@ -16,7 +17,12 @@ export default {
   props: ['options', 'label', 'trackBy'],
   data () {
     return {
-      selected: null
+      value: null
+    }
+  },
+  methods: {
+    emitPlayerUpdate () {
+      this.$emit('playerUpdate', this.value)
     }
   }
 }

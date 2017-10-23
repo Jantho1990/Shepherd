@@ -1,12 +1,11 @@
 <template lang="html">
   <li>
     <span>{{ content }}</span>
-    <input v-model="answerPlayer">
-    <button @click="emitPlayerAnswer">Add Player</button>
     <mselect
       :options="allPlayers"
       label="playerName"
       track-by="id"
+      @playerUpdate="answerPlayerUpdate"
       class="answer-players">
     </mselect>
   </li>
@@ -33,6 +32,9 @@ export default {
     emitPlayerAnswer () {
       this.$emit('playerAnswer', this.answerPlayer)
       this.answerPlayer = ''
+    },
+    answerPlayerUpdate (players) {
+      console.log('shark', players)
     }
   }
 }
