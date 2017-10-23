@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     pointTotal () {
-      return this.answerPlayers.length
+      return this.answerPlayers.length !== 0 ? this.answerPlayers.length - 1 : 0
     }
   },
   methods: {
