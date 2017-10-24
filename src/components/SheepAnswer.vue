@@ -1,6 +1,6 @@
 <template lang="html">
   <li>
-    <span>{{ content }} ({{ pointTotal }} points)</span>
+    <span>{{ answer.content }} ({{ pointTotal }} points)</span>
     <mselect
       :options="allPlayers"
       label="playerName"
@@ -16,7 +16,7 @@ import mselect from './vendor/mselect'
 export default {
   name: 'SheepAnswer',
   components: { mselect },
-  props: ['content', 'allPlayers', 'players'],
+  props: ['answer', 'allPlayers', 'players', 'id'],
   data () {
     return {
       answerPlayers: [],
@@ -32,6 +32,9 @@ export default {
     updateAnswerPlayers (players) {
       console.log('hit', players)
       this.answerPlayers = players
+      this.answerPlayers.forEach((player) => {
+        this.$emit('playerAnswer', player, this.answer)
+      })
     }
   }
 }

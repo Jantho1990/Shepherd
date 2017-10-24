@@ -21,7 +21,7 @@ export default class {
   }
 
   calculatePointTotal () {
-    return this.answers.reduce((carry, answer) => carry + answer.points)
+    return this.answers.reduce((carry, answer) => carry + answer.points, 0)
   }
 
 }

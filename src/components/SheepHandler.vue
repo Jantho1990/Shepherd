@@ -13,6 +13,7 @@
       :categoryName="category.categoryName"
       :categoryId="category.id"
       :all-players="players"
+      @playerAnswer="addAnswerToPlayer"
       v-for="category in categories"></SheepCategory>
   </div>
 </div>
@@ -43,6 +44,16 @@ export default {
     }
   },
   methods: {
+    addAnswerToPlayer (player, answer) {
+      console.log('boom', player, answer)
+      let i = this.players.findIndex((_player) => _player.id === player.id)
+      console.log(i)
+      console.log(answer.id)
+      let a = this.players[i].answers.findIndex(_answer => _answer.id === answer.id)
+      if (a === -1) {
+        this.players[i].addAnswer(answer)
+      }
+    },
     addPlayerAnswer (player, answer) {
       player.addAnswer(answer)
       answer.addPlayer(player)
