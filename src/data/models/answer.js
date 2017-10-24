@@ -9,7 +9,10 @@ export default class {
 
   addPlayer (player) {
     this.players.push(player)
+    console.log('points were', this.points)
+    console.log('ah', this.players)
     this.points = this.calculatePointTotal()
+    console.log('points are', this.points)
   }
 
   removePlayer (removedPlayer) {
@@ -25,7 +28,7 @@ export default class {
   }
 
   calculatePointTotal () {
-    this.points = this.players.length
+    return this.players.length !== 0 ? this.players.length - 1 : 0
   }
 
 }

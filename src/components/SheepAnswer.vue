@@ -30,9 +30,14 @@ export default {
   },
   methods: {
     updateAnswerPlayers (players) {
+      // this is disgusting, fix it
       console.log('hit', players)
       this.answerPlayers = players
       this.answerPlayers.forEach((player) => {
+        if (this.answer.players.findIndex(_player => _player.id === player.id)) {
+          this.answer.addPlayer(player)
+        }
+        console.log('answer points', this.answer.points, this.answer)
         this.$emit('playerAnswer', player, this.answer)
       })
     }
